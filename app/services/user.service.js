@@ -5,10 +5,10 @@
         .module('sbAdminApp')
         .factory('UserService', UserService);
 
-    UserService.$inject = ['$http','$rootScope'];
-    function UserService($http,$rootScope) {
+    UserService.$inject = ['$http','$rootScope','API_CONFIG'];
+    function UserService($http,$rootScope,API_CONFIG) {
         var service = {};
-        var rest_url = "http://api.sisfit.customdevs.com.br";
+
 
         service.GetAll = GetAll;
         service.GetById = GetById;
@@ -20,27 +20,27 @@
         return service;
 
         function GetAll() {
-            return $http.get(rest_url+'/users').then(handleSuccess, handleError('Error getting all users'));
+            return $http.get(API_CONFIG.url+'/users').then(handleSuccess, handleError('Error getting all users'));
         }
 
         function GetById(id) {
-            return $http.get(rest_url+'/users/' + id).then(handleSuccess, handleError('Error getting user by id'));
+            return $http.get(API_CONFIG.url+'/users/' + id).then(handleSuccess, handleError('Error getting user by id'));
         }
 
         function GetByUsername(username) {
-            return $http.get(rest_url+'/users/byUser/' + username).then(handleSuccess, handleError('Error getting user by username'));
+            return $http.get(API_CONFIG.url+'/users/byUser/' + username).then(handleSuccess, handleError('Error getting user by username'));
         }
 
         function Create(user) {
-            return $http.post(rest_url+'/users', user).then(handleSuccess, handleError('Error creating user'));
+            return $http.post(API_CONFIG.url+'/users', user).then(handleSuccess, handleError('Error creating user'));
         }
 
         function Update(user) {
-            return $http.put(rest_url+'/users/' + user.id, user).then(handleSuccess, handleError('Error updating user'));
+            return $http.put(API_CONFIG.url+'/users/' + user.id, user).then(handleSuccess, handleError('Error updating user'));
         }
 
         function Delete(id) {
-            return $http.delete(rest_url+'/users/' + id).then(handleSuccess, handleError('Error deleting user'));
+            return $http.delete(API_CONFIG.url+'/users/' + id).then(handleSuccess, handleError('Error deleting user'));
         }
 
         // private functions

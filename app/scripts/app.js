@@ -15,6 +15,14 @@ angular
         'angular-loading-bar',
         'ngCookies'
     ])
+    .constant('API_CONFIG',{
+        url:'http://api.sisfit.customdevs.com.br',
+        client_id: "sisfit-frontend",
+        client_secret: "452baf5a724dd60ca4bb7ff95b08bf14",
+        grant_type: "password"
+    })
+
+
     .config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
 
         $ocLazyLoadProvider.config({

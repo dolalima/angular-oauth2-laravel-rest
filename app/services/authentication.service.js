@@ -5,8 +5,8 @@
         .module('sbAdminApp')
         .factory('AuthenticationService', AuthenticationService);
 
-    AuthenticationService.$inject = ['$http', '$cookieStore', '$rootScope', '$timeout', 'UserService'];
-    function AuthenticationService($http, $cookieStore, $rootScope, $timeout, UserService) {
+    AuthenticationService.$inject = ['$http', '$cookieStore', '$rootScope', '$timeout', 'UserService', 'API_CONFIG'];
+    function AuthenticationService($http, $cookieStore, $rootScope, $timeout, UserService, API_CONFIG) {
         var service = {};
 
         service.Login = Login;
@@ -34,14 +34,14 @@
 
             /* Use this for real authentication
              ----------------------------------------------*/
-            $http.post('http://api.sisfit.customdevs.com.br/oauth/access_token', {
-                username: username,
-                password: password,
-                client_id:"sisfit-frontend",
-                client_secret: "452baf5a724dd60ca4bb7ff95b08bf14",
-                grant_type:"password"
+            $http.post(API_CONFIG.url + '/oauth/access_token', {
+                    username: username,
+                    password: password,
+                    client_id: API_CONFIG.client_id,
+                    client_secret: API_CONFIG.client_secret,
+                    grant_type: API_CONFIG.grant_type
 
-            })
+                })
                 .success(function (response) {
                     callback(response);
                 });
@@ -58,7 +58,7 @@
                 }
             };
 
-            $http.defaults.headers.common['Authorization'] = "Bearer "+authdata; // jshint ignore:line
+            $http.defaults.headers.common['Authorization'] = "Bearer " + authdata; // jshint ignore:line
             $cookieStore.put('globals', $rootScope.globals);
         }
 
@@ -68,7 +68,6 @@
             $http.defaults.headers.common.Authorization = '';
         }
     }
-
 
 
 })();
