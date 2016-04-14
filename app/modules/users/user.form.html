@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col col-xs-12">
+        <h1 class="page-header">Usuários</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col col-xs-12 ">
+        <div class="panel panel-default">
+            <div class="panel-heading"><i class="glyphicon glyphicon-user"></i> Cadastro de Usuário</div>
+            <div class="panel-body no-padding">
+                <form name="userForm" role="form">
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label for="name">Nome</label>
+                                    <input class="form-control" type="text" name="name" ng-model="vm.user.name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-xs-12">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input class="form-control" type="text" name="email" ng-model="vm.user.email">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-xs-12 col-sm-6">
+                                <div class="form-group">
+                                    <label>Senha</label>
+                                    <input class="form-control" type="password" ng-model="vm.user.password">
+                                </div>
+                            </div>
+                            <div class="col col-xs-12 col-sm-6">
+                                <div class="form-group">
+                                    <label>Verificar Senha</label>
+                                    <input class="form-control" type="password" ng-model="vm.user.passwordCheck">
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </fieldset>
+                </form>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col col-xs-12">
+                        <button class="btn btn-sm btn-primary pull-right"><i class="fa fa-save"></i> Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

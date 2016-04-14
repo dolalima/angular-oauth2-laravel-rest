@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col col-xs-12">
+        <h1 class="page-header">Usuários</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col col-xs-12">
+            <div class="panel panel-default panel-collapse">
+                <div class="panel-heading panel-"><i class="glyphicon glyphicon-user"></i> Usuários </div>
+                <div class="panel-body no-padding" style="padding: 0px">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Ações</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="user in vm.users">
+                            <td>{{user.name}}</td>
+                            <td>{{user.email}}</td>
+                            <td>
+                                <div class="btn-group">
+                                    <a class="btn btn-xs btn-default" ui-sref="users.edit({userId: user.id})"><i
+                                            class="glyphicon glyphicon-edit"></i> Editar</a>
+                                    <button class="btn btn-xs btn-danger" type="button" href=""><i
+                                            class="glyphicon glyphicon-trash"></i> Editar
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    </div>
+</div>
