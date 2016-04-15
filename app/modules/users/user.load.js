@@ -1,5 +1,6 @@
 'use strict';
 
+
 angular.module('sbAdminApp').controller('UserTableCtrl',['UserService',function(UserService){
     var vm = this;
     vm.users = [];
@@ -28,7 +29,6 @@ angular.module('sbAdminApp').controller('UserFormCtrl',['$stateParams','UserServ
 
     vm.init = function(){
         vm.loadUser();
-        console.debug($stateParams);
     }
 
     vm.init();
